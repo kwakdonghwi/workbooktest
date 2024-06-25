@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Hero from "./components/Hero/Hero";
 import Navbar from "./components/Navbar/Navbar";
 import Services from "./components/Services/Services.jsx";
@@ -6,6 +7,7 @@ import Banner from "./components/Banner/Banner.jsx";
 import AppStore from "./components/AppStore/AppStore.jsx";
 import Testimonials from "./components/Testimonials/Testimonials.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import OrderPage from "./components/OrderPage/OrderPage.jsx";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -21,15 +23,24 @@ const App = () => {
   }, []);
 
   return (
-    <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 overflow-x-hidden">
-      <Navbar />
-      <Hero />
-      <Services />
-      <Banner />
-      <AppStore />
-      <Testimonials />
-      <Footer />
-    </div>
+    <Router>
+      <div className="bg-white dark:bg-gray-900 dark:text-white duration-200 overflow-x-hidden">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Hero />
+              <Services />
+              <Banner />
+              <AppStore />
+              <Testimonials />
+              <Footer />
+            </>
+          } />
+          <Route path="/order" element={<OrderPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 

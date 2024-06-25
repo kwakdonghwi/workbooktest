@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Logo from "../../assets/website/coffee_logo.png";
 import { FaCoffee } from "react-icons/fa";
 
@@ -19,13 +20,14 @@ const Menu = [
     link: "/#about",
   },
 ];
+
 const Navbar = () => {
   return (
     <>
       <div className="bg-gradient-to-r from-secondary to-secondary/90 shadow-md bg-gray-900 text-white">
         <div className="container py-2">
           <div className="flex justify-between items-center">
-            {/* Logo section */}
+            {/* 로고 섹션 */}
             <div data-aos="fade-down" data-aos-once="true">
               <a
                 href="#"
@@ -36,7 +38,7 @@ const Navbar = () => {
               </a>
             </div>
 
-            {/* Link section */}
+            {/* 링크 섹션 */}
             <div
               data-aos="fade-down"
               data-aos-once="true"
@@ -55,10 +57,13 @@ const Navbar = () => {
                   </li>
                 ))}
               </ul>
-              <button className=" bg-primary/70 hover:scale-105 duration-200 text-white px-4 py-2 rounded-full flex items-center gap-3">
+              <Link
+                to="/order"
+                className="bg-primary/70 hover:scale-105 duration-200 text-white px-4 py-2 rounded-full flex items-center gap-3"
+              >
                 주문
                 <FaCoffee className="text-xl text-white drop-shadow-sm cursor-pointer" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>
